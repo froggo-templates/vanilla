@@ -1,12 +1,6 @@
-import autoprefixer from 'autoprefixer'
-import postcss from 'postcss'
-
-import sass from 'rollup-plugin-sass'
 import json from '@rollup/plugin-json'
 import babel from '@rollup/plugin-babel'
 import { terser } from 'rollup-plugin-terser'
-
-const __DEV__ = !!process.env.ROLLUP_WATCH
 
 module.exports = {
   input: 'src/main.js',
@@ -15,16 +9,6 @@ module.exports = {
     format: 'cjs'
   },
   plugins: [
-    sass({
-      output: 'dist/assets/app.css',
-      options: {
-        outputStyle: __DEV__ ? 'expanded' : 'compressed'
-      },
-      processor: (css) =>
-        postcss([autoprefixer({ grid: 'autoplace' })])
-          .process(css, { from: undefined })
-          .then((result) => result.css)
-    }),
     json(),
     babel({
       babelHelpers: 'bundled',
