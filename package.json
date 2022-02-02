@@ -1,0 +1,32 @@
+{
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "yarn clean && concurrently \"yarn watch:rollup\" \"yarn watch:11ty\"",
+    "start": "yarn dev",
+    "build": "yarn clean && concurrently \"yarn build:rollup\" \"yarn build:11ty\"",
+    "clean": "rimraf dist",
+    "watch:rollup": "rollup -c -w",
+    "build:rollup": "BABEL_ENV=production rollup -c",
+    "watch:11ty": "eleventy --serve --quiet --port=8888",
+    "build:11ty": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "autoprefixer": "^10.4.2",
+    "concurrently": "^7.0.0",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "postcss": "^8.4.6",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.66.1",
+    "rollup-plugin-sass": "^1.2.10",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.49.7"
+  }
+}
