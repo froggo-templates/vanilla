@@ -5,7 +5,10 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import replace from 'rollup-plugin-replace'
 
-const ie11Plugins = [
+const __DEV__ = !!process.env.ROLLUP_WATCH
+const SUPPORT_IE11 = false // set to true to enable IE11 transpilation
+
+const babelPlugin = [
   babel({
     babelHelpers: 'bundled',
     exclude: 'node_modules/**',
@@ -17,14 +20,12 @@ const ie11Plugins = [
           useBuiltIns: 'usage',
           corejs: 3,
           targets: {
-            browsers: ['last 2 versions', 'ie >= 11']
+            browsers: SUPPORT_IE11 ? ['last 2 versions', 'ie >= 11'] : ['last 2 versions']
           }
         }
       ]
     ]
-  }),
-  nodeResolve(),
-  commonjs()
+  })
 ]
 
 module.exports = {
@@ -33,7 +34,9 @@ module.exports = {
   plugins: [
     json(),
     replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
-    // ...ie11Plugins /* uncomment to support IE11 */,
+    ...(__DEV__ ? [] : babelPlugin),
+    nodeResolve(),
+    commonjs(),
     terser()
   ]
 }
