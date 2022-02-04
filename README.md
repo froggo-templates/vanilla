@@ -41,7 +41,7 @@ project/
 ### Key item(s)
 
 + `src/_partials/`: Nunjucks snippets to be used via `{% include "name.njk" %}`.
-+ `src/_template-data/`: JS(ON) which is globally available in Nunjucks templates.
++ `src/_template-data/`: Global Nunjucks template data (`.js`/`.json`).
 + `src/public/`: Files placed in here will be served at `website.com/file`.
 + `.eleventy.js`: Used for configuring the 11ty dev server/build process.
 + `built-imt.js`: Used to prepare `dist/` contents for InsureMyTrip.
