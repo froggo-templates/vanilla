@@ -10,18 +10,15 @@ const isProduction = process.env.NODE_ENV == 'production'
 
 // plugins to run in production
 const prodPlugins = [
-  // serve HTML file
   new HtmlWebpackPlugin({
     template: './src/index.html'
   }),
 
-  // extract CSS to file at build
   new MiniCssExtractPlugin({
     filename: './assets/app.css',
     chunkFilename: '[id].css'
   }),
 
-  // copy static files
   new CopyWebpackPlugin({
     patterns: [
       { from: './src/assets', to: 'assets' },
@@ -32,21 +29,17 @@ const prodPlugins = [
 
 // plugins to run during development
 const devPlugins = [
-  // serve HTML file
   new HtmlWebpackPlugin({
     template: './src/index.html'
   }),
 
-  // extract CSS to file at build
   new MiniCssExtractPlugin({
     filename: './assets/app.css',
     chunkFilename: '[id].css'
   }),
 
-  // enable HMR
   new webpack.HotModuleReplacementPlugin(),
 
-  // copy static files
   new CopyWebpackPlugin({
     patterns: [
       { from: './src/assets', to: 'assets' },
@@ -59,13 +52,14 @@ const devPlugins = [
 ]
 
 const config = {
-  target: 'web',
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: './bundle.js',
     clean: true
   },
+  target: 'web',
+  stats: false,
   devServer: {
     host: 'localhost',
     port: 8888,
