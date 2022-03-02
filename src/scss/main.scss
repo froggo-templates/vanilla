@@ -1,9 +1,9 @@
 @charset 'UTF-8';
 
-@import 'abstracts/_all.scss';
-@import 'base/_all.scss';
-@import 'components/_all.scss';
-@import 'sections/_all.scss';
+@import 'abstracts/_all';
+@import 'base/_all';
+@import 'components/_all';
+@import 'sections/_all';
 
 // scss for default project page
-@import 'froggo.scss';
+@import 'froggo';
