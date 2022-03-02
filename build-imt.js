@@ -1,6 +1,7 @@
 const fs = require('fs')
 const cheerio = require('cheerio')
 const prettier = require('prettier')
+
 const prettierConfig = {
   bracketSpacing: true,
   htmlWhitespaceSensitivity: 'css',

@@ -4,6 +4,11 @@ $screen-md: 768px !default;
 $screen-lg: 1024px !default;
 $screen-xl: 1280px !default;
 
+$iPhone5: 320px !default;
+$iPhone6: 375px !default;
+$iPad: 768px !default;
+$iPadPro: 1024px !default;
+
 $screens: (
   xs: $screen-xs,
   sm: $screen-sm,
