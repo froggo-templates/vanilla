@@ -9,6 +9,12 @@ This project was created using the [Vanilla](https://github.com/froggo-templates
 - `build`: Builds the website for production.
 - `build:imt`: Builds the website for InsureMyTrip.
 
+## Notes
+
+- Any relative URLs in SCSS files must be made with reference to `src/scss/main.scss`.
+- During development, CSS will be output in `<style>` tags in the `<head>`. When built, the CSS will be output to `dist/assets/app.css`.
+- The `built:imt` command will output the results of a normal build, alongside an additional `inline.html` file.
+
 ## Project Structure
 
 ### Tree Diagram
