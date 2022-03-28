@@ -80,8 +80,13 @@ const config = {
       {
         test: /\.(sass|scss|css)$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
+          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: false
+            }
+          },
           'postcss-loader',
           'sass-loader'
         ]
